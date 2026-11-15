@@ -1,0 +1,88 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", "PingFang SC", sans-serif;
+  background: #f7f8fa;
+  color: #1f2328;
+}
+/*顶部标题栏*/
+.topbar {
+  display: flex;/*横向排列*/
+  align-items: baseline;/*文字底部对齐*/
+  gap: 12px;/*元素间隔12px*/
+  padding: 12px 20px;
+  background: #fff;/* 内边距，白色背景 */
+  border-bottom: 1px solid #e5e7eb; /* 底部的浅灰色分割线 */
+}
+.topbar h1 { font-size: 18px; margin: 0; } /* 左侧主标题大小 */
+.topbar .sub { color: #6b7280; font-size: 12px; } /* 右侧副标题，浅灰色，小字 */
+/*核心布局：左右分栏*/
+.layout {
+  display: grid;/*网格布局*/
+  grid-template-columns: 1fr 1fr;/* 屏幕平分为两份，左边1份，右边1份 */
+  height: calc(100vh - 51px);
+}
+.chat-pane {
+display: flex; /*内部元素上下排列*/
+flex-direction: column;
+border-right: 1px solid #e5e7eb;
+min-width: 0; }
+.history {
+flex: 1;
+overflow-y: auto; /* 聊天记录超长时，出现滚动条 */
+padding: 16px 20px; }
+/* 聊天气泡 */
+.history .msg { margin: 12px 0; }
+.history .msg.user .bubble { background: #e8f0fe; }
+.history .msg.assistant .bubble { background: #fff; border: 1px solid #eef0f3; }
+.bubble { padding: 10px 12px; border-radius: 10px; line-height: 1.65; white-space: pre-wrap; }
+/*[Page X] 引用按钮*/
+.bubble .page-btn {
+  display: inline-block; margin: 2px 4px; padding: 2px 8px;
+  font-size: 12px; border: 1px solid #c7d2fe; background: #eef2ff;
+  color: #3730a3; border-radius: 6px; cursor: pointer;
+}
+/* 当前高亮的 [Page X] 按钮 */
+.bubble .page-btn.active { background: #fde68a; border-color: #f59e0b; color: #7c2d12; }
+/*参考资料折叠面板 (对应 HTML 的 .contexts)*/
+.contexts { margin-top: 8px; }
+.contexts details { border: 1px solid #eef0f3; border-radius: 8px; padding: 6px 10px; background: #fafafa; }
+.contexts summary { cursor: pointer; color: #374151; font-size: 13px; }
+.contexts .ctx-item { padding: 6px 0; border-top: 1px dashed #e5e7eb; font-size: 13px; }
+.contexts .ctx-item .meta { color: #6b7280; font-size: 12px; }
+.contexts .ctx-item .text { color: #111827; }
+/*底部输入区 (对应 HTML 的 .composer)*/
+.composer { border-top: 1px solid #e5e7eb; padding: 12px 20px; background: #fff; }
+.composer textarea {
+  width: 100%; resize: vertical; padding: 10px; font-size: 14px;
+  border: 1px solid #d1d5db; border-radius: 8px; outline: none;
+}
+.composer textarea:focus { border-color: #6366f1; }
+/* 按钮组（发送、新建会话、上传PDF） */
+.composer-actions { display: flex; gap: 8px; margin-top: 8px; align-items: center; }
+.composer-actions button, .upload-btn {
+  padding: 6px 12px; border-radius: 8px; border: 1px solid #6366f1;
+  background: #6366f1; color: #fff; cursor: pointer; font-size: 13px;
+}
+/* 幽灵按钮（新建会话、上传PDF用这个类，变成白底蓝字） */
+.composer-actions button.ghost, .upload-btn { background: #fff; color: #3730a3; }
+/* 幽灵按钮（新建会话、上传PDF用这个类，变成白底蓝字） */
+.composer-actions button:disabled { opacity: .5; cursor: not-allowed; }
+/* 状态提示栏（比如提示“正在生成…”） */
+.status { min-height: 18px; color: #6b7280; font-size: 12px; margin-top: 6px; }
+/*左下角热门提问 (对应 HTML 的 .side-info)*/
+.side-info { border-top: 1px solid #e5e7eb; padding: 10px 20px; background: #fafafa; }
+.side-info h3 { margin: 4px 0 8px; font-size: 13px; color: #374151; }
+.side-info ol { margin: 0; padding-left: 18px; font-size: 12px; color: #4b5563; }
+/*右侧 PDF 预览区 (对应 HTML 的 .pdf-pane)*/
+.pdf-pane { display: flex; flex-direction: column; min-width: 0; }
+/*PDF工具栏*/
+.pdf-toolbar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px; background: #fff; border-bottom: 1px solid #e5e7eb;
+  font-size: 13px;
+}
+.pdf-toolbar #pdfName { flex: 1; color: #374151; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pdf-toolbar .ghost { background: #fff; color: #3730a3; border: 1px solid #c7d2fe; padding: 3px 8px; border-radius: 6px; cursor: pointer; }
+/*PDF 预览框 */
+#pdfFrame { flex: 1; width: 100%; border: 0; background: #fff; }

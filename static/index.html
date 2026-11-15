@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🧠 NLP 学习助手</title>
+
+  <link rel="stylesheet" href="/static/style.css" />
+
+  <script>
+    window.__APP__ = {
+      API_PREFIX: "",
+      DEFAULT_PDF: "Build_a_Large_Language_Model_(From_Scratch)_v8_MEAP.pdf"
+    };
+  </script>
+
+  <!-- 依赖库 + 主逻辑（都用 defer：不阻塞解析，按顺序执行） -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" defer></script>
+  <script src="/static/app_v2.js" defer></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <h1>🧠 NLP 学习助手</h1>
+    <span class="sub">基于 LangGraph Agent · 流式 · 缓存 · 引用跳页</span>
+  </header>
+
+  <main class="layout">
+    <!-- 左侧：聊天区 -->
+    <section class="chat-pane">
+      <div id="history" class="history"></div>
+
+      <!-- 输入区 -->
+      <div class="composer">
+        <textarea
+          id="question"
+          rows="2"
+          maxlength="1000"
+          placeholder="请输入你的问题，例如：多头注意力是什么？"
+        ></textarea>
+
+        <div class="composer-actions">
+          <button id="sendBtn">发送</button>
+          <button id="newThreadBtn" class="ghost">新建会话</button>
+
+          <!-- label 包 hidden input，点文字即触发选择框 -->
+          <label class="upload-btn">
+            上传 PDF
+            <input
+              type="file"
+              id="pdfUpload"
+              accept="application/pdf"
+              hidden
+            />
+          </label>
+        </div>
+
+        <div id="status" class="status"></div>
+      </div>
+
+      <aside class="side-info">
+        <h3>🔥 热门提问 Top 5</h3>
+        <ol id="hotList"></ol>
+      </aside>
+    </section>
+
+    <!-- 右侧：PDF 预览 -->
+    <section class="pdf-pane">
+      <div class="pdf-toolbar">
+        <span id="pdfName">PDF 预览</span>
+        <button id="prevPage" class="ghost">← 上一页</button>
+        <span id="pageIndicator">Page 1</span>
+        <button id="nextPage" class="ghost">下一页 →</button>
+      </div>
+
+      <iframe
+        id="pdfFrame"
+        src="about:blank"
+        title="PDF 预览"
+        style="border: 0; width: 100%; height: 100%;"
+      ></iframe>
+    </section>
+  </main>
+</body>
+</html>

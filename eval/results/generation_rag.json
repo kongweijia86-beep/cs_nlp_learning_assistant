@@ -1,0 +1,1484 @@
+{
+  "meta": {
+    "mode": "rag",
+    "top_k": 5,
+    "tolerance": 1,
+    "seed": 42,
+    "num_questions": null,
+    "model": "deepseek-chat",
+    "temperature_generate": 0.2,
+    "temperature_judge": 0.0
+  },
+  "summary": {
+    "mode": "rag",
+    "total": 59,
+    "correct": 0.5423728813559322,
+    "partial": 0.22033898305084745,
+    "wrong": 0.11864406779661017,
+    "abstained": 0.11864406779661017,
+    "error": 0.0,
+    "judge_error": 0.0
+  },
+  "details": [
+    {
+      "id": "ch02_def_q01",
+      "category": "definition",
+      "chapter": "Chapter 2",
+      "question": "What is an embedding in the context of deep learning, and what is its primary purpose?",
+      "reference_answer": "An embedding is a mapping from discrete objects, such as words, images, or even entire documents, to points in a continuous vector space. Its primary purpose is to convert non-numeric data into a format that neural networks can process.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        24,
+        54,
+        24
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        24,
+        54
+      ],
+      "generated": "An embedding is a mapping from discrete objects (such as words, images, or entire documents) to points in a continuous vector space; it is a continuous vector representation that converts non-numeric data into a format neural networks can process. Its primary purpose is to convert non-numeric data into a format that neural networks can process [Page 24]. A continuous vector representation (embedding) is necessary because GPT-like LLMs are deep neural networks trained with the backpropagation algorithm [Page 54].",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了参考答案的两个关键点：embedding 是离散对象到连续向量空间的映射，以及其主要用途是将非数值数据转换为神经网络可处理的格式。"
+    },
+    {
+      "id": "ch02_def_q02",
+      "category": "definition",
+      "chapter": "Chapter 2",
+      "question": "What is a vocabulary in the context of converting tokens into token IDs?",
+      "reference_answer": "A vocabulary defines how we map each unique word and special character to a unique integer. It is built from the training set and contains all unique tokens, usually sorted alphabetically.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        34,
+        32,
+        31
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        32,
+        34
+      ],
+      "generated": "资料足够。在将 token 转换为 token ID 的语境中，vocabulary 是通过对训练数据集中整个文本进行分词得到各个 token，再按字母顺序排序并去除重复 token 后，将每个唯一 token 聚合而成的集合，它定义了从每个唯一 token 到唯一整数值的映射 [Page 32]。此外，还可以创建 vocabulary 的逆版本，将 token ID 映射回对应的文本 token [Page 34]。",
+      "verdict": "correct",
+      "reason": "回答覆盖了参考答案的关键点：vocabulary 由训练集分词得到、按字母顺序排序、去重、定义唯一 token 到唯一整数的映射，并额外提到逆映射，内容正确。"
+    },
+    {
+      "id": "ch03_def_q01",
+      "category": "definition",
+      "chapter": "Chapter 3",
+      "question": "What is self-attention in the context of transformer-based LLMs?",
+      "reference_answer": "Self-attention is a mechanism that allows each position in the input sequence to attend to all positions in the same sequence when computing the representation of a sequence. It is a key component of contemporary LLMs based on the transformer architecture, such as the GPT series.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        69,
+        70,
+        70
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        69,
+        69,
+        70,
+        70
+      ],
+      "generated": "根据资料，self-attention 是一种机制，它允许输入序列中的每个位置在计算序列表示时关注同一序列中的所有位置 [Page 69]。它是基于 transformer 架构的当代 LLM（如 GPT 系列）的关键组成部分 [Page 69]。在 self-attention 中，“self”指的是该机制通过关联单个输入序列内不同位置来计算注意力权重的能力，它评估并学习输入自身各部分（如句子中的词或图像中的像素）之间的关系和依赖 [Page 70]。这与传统注意力机制不同，后者的重点在于不同对象之间的关系 [Page 70]。",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了参考答案的关键点：self-attention 允许序列中每个位置关注同一序列的所有位置，并且是 transformer 架构 LLM（如 GPT 系列）的关键组成部分，还补充了额外细节。"
+    },
+    {
+      "id": "ch03_def_q02",
+      "category": "definition",
+      "chapter": "Chapter 3",
+      "question": "What are query, key, and value vectors in the context of attention mechanisms?",
+      "reference_answer": "The query represents the current item the model focuses on or tries to understand and is used to probe other parts of the input sequence. The key is like a database key used for indexing and searching, and each item in the input sequence has an associated key used to match with the query. The value represents the actual content or representation of the input items; once the model determines which keys are most relevant to the query, it retrieves the corresponding values.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        87,
+        82,
+        87
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        87,
+        87,
+        82,
+        87,
+        82,
+        87,
+        82,
+        87,
+        82
+      ],
+      "generated": "资料足够回答这个问题。\n\n在注意力机制中，query、key、value 这三个术语借用于信息检索和数据库领域，用于存储、搜索和检索信息 [Page 87]。\n\n- **Query（查询）**：类似于信息检索中的“查询”，用于与各个 key 进行匹配。资料中提到“A ‘query’ is analo...” [Page 87]，并在图 3.14 的说明中指出，query 向量 q(2) 是通过输入 x(2) 与权重矩阵 Wq 进行矩阵乘法得到的 [Page 82]。\n\n- **Key（键）**：句子中的每个词（每个输入元素）都有一个关联的 key，这些 key 用于与 query 匹配 [Page 87]。key 向量通过输入与权重矩阵 Wk 进行矩阵乘法得到 [Page 82]。\n\n- **Value（值）**：类似于数据库中键值对中的“值”，它表示输入项的实际内容或表示。一旦模型确定哪些 key（即输入的哪些部分）与 query 最相关，它就会检索相应的 value [Page 87]。value 向量通过输入与权重矩阵 Wv 进行矩阵乘法得到 [Page 82]。\n\n引用：[Page 87] [Page 82]",
+      "verdict": "correct",
+      "reason": "回答准确解释了 query、key、value 的含义，覆盖了参考答案的关键点（query 用于匹配、key 用于索引/匹配、value 为实际内容并在匹配后检索），并补充了权重矩阵的细节，与参考答案一致。"
+    },
+    {
+      "id": "ch03_def_q03",
+      "category": "definition",
+      "chapter": "Chapter 3",
+      "question": "What is causal attention, also known as masked attention?",
+      "reference_answer": "Causal attention, also known as masked attention, is a specialized form of self-attention. It restricts a model to only consider previous and current inputs in a sequence when processing any given token. This is in contrast to the standard self-attention mechanism, which allows access to the entire input sequence at once.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        92,
+        95,
+        92
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        92,
+        92,
+        95
+      ],
+      "generated": "Causal attention（也称为 masked attention）是一种特殊形式的 self-attention，它限制模型在处理任意给定 token 时，只能考虑序列中位于该 token 之前和当前位置的输入，而不能访问整个输入序列。因此，在计算 attention scores 时，causal attention 机制确保模型只考虑当前 token 处或之前出现的 token。[Page 92]\n\n具体实现上，它会 mask 掉对角线以上的 attention weights，并对非 masked 的 attention weights 进行归一化，使每一行的 attention weights 之和为 1。[Page 92] 这样可以确保不会从未来（或其他被 mask）的 token 中发生信息泄漏。[Page 95]",
+      "verdict": "correct",
+      "reason": "回答准确解释了 causal/masked attention 是 self-attention 的特殊形式，限制模型只能关注当前及之前的 token，并补充了 mask 与归一化的实现细节，覆盖了参考答案的关键点。"
+    },
+    {
+      "id": "ch03_def_q04",
+      "category": "definition",
+      "chapter": "Chapter 3",
+      "question": "What is scaled dot-product attention?",
+      "reference_answer": "Scaled dot-product attention is the self-attention mechanism used in the original transformer architecture, the GPT models, and most other popular LLMs. It computes attention scores as dot products between queries and keys, divides them by the square root of the key embedding dimension before applying softmax, and then uses the resulting attention weights to compute a weighted sum over the value vectors. The scaling by the square root of the embedding dimension is the reason why this self-attention mechanism is also called scaled-dot product attention.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        86,
+        74,
+        84
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        86,
+        74,
+        84
+      ],
+      "generated": "资料中关于 scaled dot-product attention 的说明主要集中在归一化（缩放）的原因上：按嵌入维度大小进行归一化，是为了避免梯度过小、改善训练表现；当嵌入维度增大（GPT 类 LLM 通常大于一千）时，大的点积会导致反向传播中经过 softmax 后梯度过小，因为点积增大时 softmax 更接近阶跃函数 [Page 86]。\n\n资料还说明，在自注意力机制中，点积被用作相似度度量，点积越大表示两个向量对齐或相似程度越高，并用于确定注意力 [Page 74]；注意力分数计算是一种点积计算，但这里不是直接对输入元素做点积，而是使用由输入得到的 query 和 key [Page 84]。\n\n不过，资料没有给出 scaled dot-product attention 的完整定义或缩放公式（例如除以 √d_k 的具体形式），因此以上仅为资料中能找到的相关说明。",
+      "verdict": "partial",
+      "reason": "回答正确解释了缩放的原因和点积相似度，但明确表示资料未给出完整定义和除以√d_k的缩放公式，漏掉了参考答案的核心公式与完整机制描述。"
+    },
+    {
+      "id": "ch03_def_q05",
+      "category": "definition",
+      "chapter": "Chapter 3",
+      "question": "What is multi-head attention?",
+      "reference_answer": "Multi-head attention is an extension of self-attention and causal attention that divides the attention mechanism into multiple 'heads,' each operating independently. Each head learns different aspects of the data, allowing the model to simultaneously attend to information from different representation subspaces at different positions.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        101,
+        102,
+        105
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        101,
+        102,
+        105
+      ],
+      "generated": "Multi-head attention 是指将注意力机制划分为多个“头”（heads），每个头独立运行；它是把此前实现的因果注意力（causal attention）类扩展到多个头上，也称为 multi-head attention [Page 101]。资料还提到可以通过堆叠多个单头因果注意力模块（CausalAttention）来实现多头注意力，也可以用权重拆分的方式以计算上更高效的方式实现 [Page 102][Page 105]。",
+      "verdict": "partial",
+      "reason": "回答正确描述了多头注意力将注意力划分为多个独立头，但遗漏了参考答案的关键点：每个头学习数据的不同方面，使模型能同时关注不同表示子空间和不同位置的信息。"
+    },
+    {
+      "id": "ch04_def_q01",
+      "category": "definition",
+      "chapter": "Chapter 4",
+      "question": "What is a transformer block in the context of GPT and other LLM architectures?",
+      "reference_answer": "A transformer block is a fundamental building block of GPT and other LLM architectures that combines several concepts: multi-head attention, layer normalization, dropout, feed-forward layers, and GELU activations. It is repeated many times throughout the GPT model architecture.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        139,
+        139,
+        144
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        139,
+        139,
+        144
+      ],
+      "generated": "根据资料，transformer block 是 GPT 及其他 LLM 架构中的一个基础构建模块（fundamental building block）。它结合了此前介绍过的多个概念：多头注意力（multi-head attention）、层归一化（layer normalization）、dropout、前馈层（feed forward layers）以及 GELU 激活函数 [Page 139]。该模块的输入是已嵌入为 768 维向量的 token，每一行对应一个 token 的向量表示；其输出是与输入维度相同的向量，可再送入 LLM 中的后续层 [Page 139]。在 124M 参数的 GPT-2 模型中，这个 transformer block 被重复 12 次（由 GPT_CONFIG_124M 字典中的 \"n_layers\" 指定）；在最大的 1,542M 参数 GPT-2 模型中，它被重复 36 次 [Page 144]。",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了参考答案的所有关键点：基础构建模块、多头注意力、层归一化、dropout、前馈层、GELU 激活，以及模块在 GPT 架构中被重复多次，并补充了额外细节。"
+    },
+    {
+      "id": "ch04_def_q02",
+      "category": "definition",
+      "chapter": "Chapter 4",
+      "question": "What are shortcut connections, also known as skip or residual connections?",
+      "reference_answer": "Shortcut connections, also known as skip or residual connections, create an alternative, shorter path for the gradient to flow through the network by skipping one or more layers, which is achieved by adding the output of one layer to the output of a later layer. They help mitigate the vanishing gradient problem when training deep neural networks such as LLMs.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        134,
+        134,
+        135
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        134,
+        135
+      ],
+      "generated": "Shortcut connections（也称为 skip connections 或 residual connections）是在神经网络不同层之间插入的连接，通过将某一层的输出加到后面某一层的输出上，为梯度在网络中流动创建一条替代的、更短的路径，从而跳过一层或多层。它们有助于在训练的反向传播过程中保持梯度的流动，最初是在计算机视觉的深度网络（特别是残差网络）中提出的，用于缓解梯度消失问题。 [Page 134] [Page 135]",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了参考答案的关键点：为梯度提供更短路径、跳过一层或多层、将某层输出加到后面层输出、缓解梯度消失问题，并补充了残差网络背景，与参考答案一致。"
+    },
+    {
+      "id": "ch04_def_q03",
+      "category": "definition",
+      "chapter": "Chapter 4",
+      "question": "What is weight tying in the context of GPT-2?",
+      "reference_answer": "Weight tying refers to sharing the weights between the token embedding layer and the output layer. In the GPT-2 model, both layers have the same shape of torch.Size([50257, 768]). By tying the weights, the output layer parameter count is removed from the total, reducing the model to 124 million parameters, which matches the original size of the GPT-2 model.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        146,
+        147,
+        147
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        146,
+        147,
+        147
+      ],
+      "generated": "Weight tying in GPT-2 refers to a concept used in the original GPT-2 architecture where the weights from the token embedding layer are reused in the output layer [Page 146]. The weight tensors for both the token embedding and output layers have the same shape [Page 147]. Weight tying reduces the overall memory footprint and computational complexity of the model [Page 147].",
+      "verdict": "partial",
+      "reason": "正确解释了权重共享（token embedding 与输出层共享权重）及形状相同，但遗漏了关键点：共享后输出层参数不计入总数，使模型参数降至 124M，与原始 GPT-2 规模一致。"
+    },
+    {
+      "id": "ch05_def_q01",
+      "category": "definition",
+      "chapter": "Chapter 5",
+      "question": "What is greedy decoding in the context of text generation with LLMs?",
+      "reference_answer": "Greedy decoding is a text generation strategy where, at each step, the token with the highest probability is selected as the next token. It is implemented by applying torch.argmax to the logits or probability scores.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        203,
+        182,
+        156,
+        204
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        203,
+        203
+      ],
+      "generated": "根据资料，greedy decoding 是指在文本生成时选择概率得分最高的选项（the highest probability score）的解码方式 [Page 203]。资料还提到，通过概率采样（probabilistic sampling）和温度缩放（temperature scaling），可以影响生成文本的多样性和连贯性 [Page 203]。",
+      "verdict": "partial",
+      "reason": "回答正确指出了选择最高概率得分的token，但遗漏了参考答案中的关键实现细节（对logits或概率分数应用torch.argmax），且额外加入了与问题无关的采样和温度缩放内容。"
+    },
+    {
+      "id": "ch05_def_q02",
+      "category": "definition",
+      "chapter": "Chapter 5",
+      "question": "What is temperature scaling in the context of controlling token selection?",
+      "reference_answer": "Temperature scaling is a method to control the distribution and selection process of token sampling. Mathematically, it involves dividing the logits by a number greater than 0 (the temperature parameter), which adjusts the probability distribution before sampling. Temperatures greater than 1 result in more uniformly distributed token probabilities, and temperatures smaller than 1 result in more confident distributions.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        185,
+        183,
+        187
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        185,
+        187,
+        187,
+        183
+      ],
+      "generated": "Temperature scaling 是一种控制 token 选择分布与随机性的技术，它通过将 logits 除以一个大于 0 的数来实现（即“温度”），从而调节 softmax 概率分布的尖锐程度 [Page 185]。使用温度为 1 等同于不使用温度缩放，此时 token 按原始 softmax 概率分数通过 PyTorch 的 multinomial 采样函数被选中 [Page 187]。而使用非常小的温度（如 0.1）会产生更尖锐的分布，使得多项式采样几乎 100% 选择最可能的 token（例如 \"forward\"）[Page 187]。温度缩放与 top-k 采样一起，被用来控制生成文本的随机性和多样性 [Page 183]。",
+      "verdict": "correct",
+      "reason": "回答正确解释了温度缩放：将 logits 除以大于 0 的温度参数以调节 softmax 分布，并说明高温使分布更均匀、低温使分布更尖锐，覆盖了参考答案的关键点。"
+    },
+    {
+      "id": "ch05_def_q03",
+      "category": "definition",
+      "chapter": "Chapter 5",
+      "question": "What is top-k sampling?",
+      "reference_answer": "Top-k sampling restricts the sampled tokens to the top-k most likely tokens and excludes all other tokens from the selection process by masking their probability scores with negative infinity before applying the softmax function. This results in a probability distribution with a probability value 0 assigned to all non-top-k tokens.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        188,
+        188,
+        190
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        188,
+        190
+      ],
+      "generated": "top-k sampling 是一种文本生成方法：它把被采样的 token 限制为最可能的 top-k 个 token，并通过屏蔽其他 token 的概率分数，将所有其他 token 排除在选择过程之外。具体来说，使用 top-k 采样时（例如 k=3），会聚焦于与最高 logits 相关联的 3 个 token，并在应用 softmax 函数之前用负无穷（-inf）屏蔽所有其他 token，从而使所有非 top-k token 的概率值为 0。资料还指出，top-k sampling 与概率采样和温度缩放结合使用时，可以改善文本生成结果。[Page 188]\n\n此外，资料提到在后续部分会将温度采样和 top-k 采样等概念结合，并加入此前用于通过 LLM 生成文本的 generate_simple 函数，从而创建新的 generate 函数。[Page 190]",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了参考答案的关键点：限制为 top-k 个最可能的 token、用负无穷屏蔽其他 token、在 softmax 前应用、非 top-k token 概率为 0。额外内容不影响正确性。"
+    },
+    {
+      "id": "ch06_def_q01",
+      "category": "definition",
+      "chapter": "Chapter 6",
+      "question": "What is classification-finetuning in the context of LLMs?",
+      "reference_answer": "Classification-finetuning is a finetuning approach where the model is trained to recognize a specific set of class labels, such as 'spam' and 'not spam.' It involves replacing the output layer of an LLM with a small classification layer. A classification-finetuned model is restricted to predicting classes it has encountered during its training.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        204,
+        205,
+        222
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        205,
+        222,
+        204,
+        204,
+        205,
+        222
+      ],
+      "generated": "资料足够回答这个问题。\n\n分类微调（classification-finetuning）是 LLM 微调的两种主要方式之一（另一种是指令微调），其目标是把预训练好的 LLM 改造成一个分类器。具体做法是：修改预训练模型，将原本把隐藏表示映射到 50,257 词表大小的原始输出层，替换为一个更小的输出层，从而为分类微调做准备 [Page 205][Page 222]。资料还以识别垃圾邮件为例，说明可以用分类微调让 LLM 充当分类器，并对其分类准确率进行评估 [Page 204]。\n\n**引用：** [Page 204][Page 205][Page 222]",
+      "verdict": "partial",
+      "reason": "回答正确描述了分类微调（替换输出层、以垃圾邮件为例），但遗漏了参考答案的关键点：分类微调模型只能预测训练中见过的类别。"
+    },
+    {
+      "id": "ch07_def_q01",
+      "category": "definition",
+      "chapter": "Chapter 7",
+      "question": "What is instruction finetuning, also known as supervised instruction finetuning?",
+      "reference_answer": "Instruction finetuning, also known as supervised instruction finetuning, is the process of finetuning an LLM to follow human instructions. It involves training a model on a dataset where the input-output pairs are explicitly provided, typically consisting of instruction and answer pairs. It is one of the main techniques behind developing LLMs for chatbot applications, personal assistants, and other conversational tasks.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        248,
+        301,
+        256,
+        303
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        248,
+        248
+      ],
+      "generated": "资料中没有找到足够的信息来回答这个问题。\n\n资料中只提到本章涵盖“LLM 的指令微调过程”（introduction to the instruction finetuning process of LLMs）[Page 248]，以及“加载预训练 LLM 并微调它以遵循人类指令”（loading a pretrained LLM and finetuning it to follow human instructions）[Page 248]，但没有给出“instruction finetuning（又称 supervised instruction finetuning）”的明确定义或解释。",
+      "verdict": "abstained",
+      "reason": "系统明确表示资料不足，且检索到的页面仅提及指令微调的名称和目的，未给出参考答案中的定义、训练数据形式及聊天机器人等应用等关键信息，因此属于合理的拒答。"
+    },
+    {
+      "id": "app_def_q01",
+      "category": "definition",
+      "chapter": "Appendix A",
+      "question": "What is a computational graph in the context of PyTorch and deep learning?",
+      "reference_answer": "A computational graph (or computation graph) is a directed graph that allows us to express and visualize mathematical expressions. In the context of deep learning, a computation graph lays out the sequence of calculations needed to compute the output of a neural network, which is needed later to compute the required gradients for backpropagation.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        317,
+        317,
+        352,
+        352,
+        305
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        317,
+        317
+      ],
+      "generated": "根据资料，计算图（computational graph）是一个有向图，用于表达和可视化数学表达式。在深度学习语境中，计算图展示了计算神经网络输出所需的计算序列，后续用于计算反向传播所需的梯度，而反向传播是神经网络的主要训练算法。[Page 317]\n\n资料还指出，PyTorch 的 autograd 系统提供在动态计算图中自动计算梯度的功能。[Page 317]",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了参考答案的关键点：计算图是有向图、用于表达和可视化数学表达式、展示神经网络输出所需的计算序列、用于反向传播计算梯度，并补充了PyTorch autograd动态计算图的信息。"
+    },
+    {
+      "id": "ch01_q01",
+      "category": "concept",
+      "chapter": "Chapter 1",
+      "question": "What is an LLM, and what does the 'large' in large language model refer to?",
+      "reference_answer": "An LLM, or large language model, is a neural network designed to understand, generate, and respond to human-like text. These models are deep neural networks trained on massive amounts of text data. The 'large' in large language model refers to both the model's size in terms of parameters and the immense dataset on which it is trained. Models like this often have tens or even hundreds of billions of parameters, which are the adjustable weights in the network that are optimized during training to predict the next word in a sequence.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        6,
+        6,
+        5,
+        22
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        6,
+        6
+      ],
+      "generated": "An LLM (large language model) is a neural network designed to understand, generate, and respond to human-like text; these are deep neural networks trained on massive amounts of text data, sometimes encompassing large portions of the entire publicly available text on the internet [Page 6].\n\nThe \"large\" in large language model refers to both the model's size in terms of parameters and the immense dataset on which it's trained; such models often have tens or even hundreds of billions of parameters, which are the adjustable weights in the network optimized during training to predict the next word in a sequence [Page 6].",
+      "verdict": "correct",
+      "reason": "回答完整覆盖了参考答案的关键点：LLM 的定义、深度神经网络、大规模文本训练，以及“large”同时指参数规模和数据集规模，并提到数十亿到数千亿参数及可调权重用于预测下一个词。"
+    },
+    {
+      "id": "ch02_q01",
+      "category": "concept",
+      "chapter": "Chapter 2",
+      "question": "Why is it necessary to convert raw text into continuous-valued vectors before it can be processed by deep neural network models such as LLMs?",
+      "reference_answer": "Deep neural network models, including LLMs, cannot process raw text directly. Since text is categorical, it isn't compatible with the mathematical operations used to implement and train neural networks. Therefore, we need a way to represent words as continuous-valued vectors.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        23,
+        62,
+        23
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        23,
+        62,
+        23,
+        23,
+        62
+      ],
+      "generated": "资料足够回答这个问题。\n\n**答案：**\n\n必须将原始文本转换为连续值向量，原因如下：\n\n1. 深度神经网络模型（包括 LLM）无法直接处理原始文本。文本是类别性的（categorical），与实现和训练神经网络所用的数学运算不兼容。因此需要一种将词表示为连续值向量的方法。[Page 23]\n\n2. 嵌入（embedding）将离散数据（如词或图像）转换为连续向量空间，使其与神经网络运算兼容。[Page 62]\n\n3. 将数据转换为向量格式的概念通常被称为嵌入，可通过特定的神经网络层或另一个预训练的神经网络模型来实现。[Page 23]\n\n**引用：** [Page 23]、[Page 62]",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了参考答案的核心要点：神经网络无法直接处理原始文本，文本是类别性的，与数学运算不兼容，因此需要将词表示为连续值向量。额外补充的嵌入说明也正确且相关。"
+    },
+    {
+      "id": "ch03_q02",
+      "category": "concept",
+      "chapter": "Chapter 3",
+      "question": "What is self-attention and how does it work according to the provided text?",
+      "reference_answer": "Self-attention is a mechanism that allows each position in the input sequence to attend to all positions in the same sequence when computing the representation of a sequence. It works by allowing each position in a sequence to interact with and weigh the importance of all other positions within the same sequence, thereby computing more efficient input representations.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        70,
+        70,
+        81
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        70,
+        70,
+        81
+      ],
+      "generated": "根据资料，self-attention 中的“self”指的是该机制能够通过关联**单个输入序列内部**的不同位置来计算注意力权重。它会评估并学习输入自身各个部分（例如句子中的词或图像中的像素）之间的关系和依赖。这与传统注意力机制不同，传统注意力关注的是……（资料在此处截断）[Page 70]。\n\n此外，资料说明 self-attention 是每个基于 transformer 架构的 LLM 的基石，并且本节会讲解其内部工作原理并从头编写代码 [Page 70]。资料还提到，在这一部分中会为注意力机制加入可训练权重，并在后续部分通过加入因果掩码（causal mask）和多头（multiple heads）来扩展该 self-attention 机制 [Page 81]。\n\n关于 self-attention 具体“如何工作”的完整机制细节，资料中只给出了上述概述性描述，未提供更完整的步骤说明。",
+      "verdict": "partial",
+      "reason": "回答正确解释了 self-attention 的“self”含义（同一序列内不同位置相互关联并计算注意力权重），但未明确覆盖参考答案中“为每个位置计算更高效的输入表示”这一关键点，且声称资料未提供完整工作机制细节，而参考答案已给出核心机制描述，因此属于部分正确。"
+    },
+    {
+      "id": "ch05_q02",
+      "category": "concept",
+      "chapter": "Chapter 5",
+      "question": "What is perplexity, how does it relate to cross entropy loss in evaluating language models, and what does a lower perplexity indicate?",
+      "reference_answer": "Perplexity is a measure often used alongside cross entropy loss to evaluate the performance of models in tasks like language modeling. It provides a more interpretable way to understand the uncertainty of a model in predicting the next token in a sequence. Perplexity measures how well the probability distribution predicted by the model matches the actual distribution of the words in the dataset. Similar to the loss, a lower perplexity indicates that the model predictions are closer to the actual distribution.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        167,
+        168,
+        167
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        167,
+        168,
+        168,
+        167
+      ],
+      "generated": "Perplexity 是一种常与交叉熵损失（cross entropy loss）一起使用的度量，用于评估语言建模等任务中模型的性能；它衡量模型预测的概率分布与数据集中词的实际分布匹配得如何，并且相比原始 loss 值更具可解释性，表示模型在每一步不确定的“有效词汇量”大小 [Page 167][Page 168]。它与交叉熵损失的关系是：perplexity 可以通过 `perplexity = torch.exp(loss)` 计算得到 [Page 168]。较低的 perplexity 表明模型性能更好（类似 loss，较低的 perplexity 表示模型更好）[Page 167]。",
+      "verdict": "correct",
+      "reason": "回答覆盖了参考答案的关键点：perplexity 与交叉熵损失一起用于评估语言模型、衡量预测分布与实际分布的匹配程度、更具可解释性、可通过 exp(loss) 计算，以及较低 perplexity 表示模型更好。"
+    },
+    {
+      "id": "ch06_q05",
+      "category": "concept",
+      "chapter": "Chapter 6",
+      "question": "What is the key architectural difference between classification-finetuning and pretraining in terms of the output layer?",
+      "reference_answer": "Classification-finetuning involves replacing the output layer of an LLM with a small classification layer. For example, in a spam/not spam classification task, the new classification layer consists of only 2 output nodes, whereas in pretraining the number of output nodes equals the number of unique tokens in the vocabulary, namely 50,256.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        207,
+        222,
+        231
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        222,
+        207
+      ],
+      "generated": "关键架构差异在于输出层：分类微调会把原本将隐藏表示映射到 50,257 词表大小的原始输出层，替换为一个更小的输出层（用于分类类别）[Page 222]。资料还指出，分类微调的使用局限于模型所训练过的特定类别 [Page 207]。",
+      "verdict": "correct",
+      "reason": "回答正确指出分类微调将原始词表大小的输出层替换为更小的分类输出层，覆盖了参考答案的核心架构差异；词表大小50,257与参考的50,256仅有细微差异，不影响正确性。"
+    },
+    {
+      "id": "ch06_q03",
+      "category": "principle",
+      "chapter": "Chapter 6",
+      "question": "Why are we particularly interested in the last output token rather than the 1st, 2nd, or 3rd output token when converting values into a class-label prediction?",
+      "reference_answer": "Because GPT-like models use a causal attention mask that restricts each token's focus to only its current position and those before it. Therefore, only the last output token has been influenced by all preceding tokens in the sequence, making it the most informative representation for making a prediction.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        229,
+        228,
+        228,
+        203
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        228,
+        229,
+        228,
+        229
+      ],
+      "generated": "资料中给出的直接原因是：在将模型输出转换为类标签预测时，不需要微调全部 4 个输出行，而可以只关注单个输出 token，特别是最后一行（对应最后一个输出 token）[Page 228]。资料还提到，之所以特别关注最后一个输出 token 而不是第 1、2、3 个输出 token，与第 3 章介绍的注意力机制以及因果注意力（causal attention）有关——注意力机制建立每个输入 token 与其他所有输入 token 之间的关系 [Page 229]。但资料在此处并未进一步展开说明“为什么因此就选最后一个 token”的完整推理。\n\n因此，可依据资料确认的结论是：选择最后一个输出 token 是因为只需关注单个输出 token 即可做类标签预测，且最后一行对应最后一个输出 token [Page 228]；其背景与注意力/因果注意力机制有关 [Page 229]。资料中没有找到足够的信息来完整解释“为什么是最后一个而不是第 1、2、3 个”的详细原因。",
+      "verdict": "partial",
+      "reason": "回答提到了因果注意力机制，但未说明关键点：因果掩码使只有最后一个 token 能关注所有前序 token，因此信息最丰富。系统声称资料未展开完整推理，但参考答案的核心逻辑正是因果注意力掩码的作用，回答遗漏了这一关键解释。"
+    },
+    {
+      "id": "ch07_q04",
+      "category": "principle",
+      "chapter": "Chapter 7",
+      "question": "Why is one 50256 (end-of-text) token ID intentionally kept in the targets instead of being masked out with -100?",
+      "reference_answer": "We want to keep one 50256 (end-of-text) token ID in the targets because it helps the LLM to learn to generate end-of-text tokens, which we can use as an indicator that a response is complete.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        269,
+        265,
+        263
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        269,
+        265
+      ],
+      "generated": "资料足够。保留一个 50256（end-of-text）token ID 在 targets 中，是为了帮助 LLM 学习生成 end-of-text token，从而可以将其用作判断响应是否完成的指示器 [Page 269]。资料还说明，这样做可以让 LLM 学习何时生成 end-of-text token [Page 265]。",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了参考答案的核心要点：保留一个 end-of-text token 是为了让 LLM 学习生成该 token，并将其用作判断响应是否完成的指示器。"
+    },
+    {
+      "id": "ch01_q02",
+      "category": "comparison",
+      "chapter": "Chapter 1",
+      "question": "What is the fundamental difference between traditional NLP methods and LLMs in terms of the tasks they can handle?",
+      "reference_answer": "Traditional methods excelled at categorization tasks such as email spam classification and straightforward pattern recognition that could be captured with handcrafted rules or simpler models, but typically underperformed in language tasks that demanded complex understanding and generation abilities, such as parsing detailed instructions, conducting contextual analysis, or creating coherent and contextually appropriate original text. LLMs can handle these complex tasks; for example, previous generations of language models could not write an email from a list of keywords, a task that is trivial for contemporary LLMs.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        6,
+        6,
+        5,
+        22
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        6,
+        5
+      ],
+      "generated": "传统 NLP 方法通常是为特定任务设计的（如文本分类、语言翻译），在狭窄应用中表现出色，但通常在需要复杂理解和生成能力的语言任务上表现不佳；而 LLM 则在广泛的 NLP 任务中展现出更广的通用能力，包括文本翻译、情感分析、问答等 [Page 6][Page 5]。",
+      "verdict": "partial",
+      "reason": "回答正确指出了传统方法在复杂理解和生成任务上表现不佳、LLM 能力更广，但未明确提及参考答案中的关键对比点，如传统方法擅长垃圾邮件分类等分类任务，以及 LLM 能完成从关键词写邮件等生成任务。"
+    },
+    {
+      "id": "ch01_q04",
+      "category": "comparison",
+      "chapter": "Chapter 1",
+      "question": "How does the training approach of BERT differ from that of GPT?",
+      "reference_answer": "BERT is built upon the original transformer's encoder submodule and specializes in masked word prediction, where the model predicts masked or hidden words in a given sentence. GPT focuses on the decoder portion of the original transformer and is designed for generative tasks, including machine translation, text summarization, fiction writing, and writing computer code.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        13,
+        15,
+        13
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        13,
+        13
+      ],
+      "generated": "根据资料，BERT 的训练方式与 GPT 不同：GPT 面向生成式任务，而 BERT 及其变体专注于掩码词预测，即预测给定句子中被掩码或隐藏的词 [Page 13]。这种训练策略使 BERT 在文本分类任务（如情感预测和文档分类）上具有优势 [Page 13]。",
+      "verdict": "partial",
+      "reason": "回答正确指出BERT的掩码词预测和GPT的生成式任务，但遗漏了参考答案中关于BERT基于Transformer编码器、GPT基于解码器的关键架构差异。"
+    },
+    {
+      "id": "ch03_q05",
+      "category": "comparison",
+      "chapter": "Chapter 3",
+      "question": "What is the key architectural difference between the MultiHeadAttentionWrapper and the MultiHeadAttention class in terms of how they implement multi-head attention?",
+      "reference_answer": "The MultiHeadAttentionWrapper stacks multiple single-head attention layers and combines them into a multi-head attention layer, whereas the MultiHeadAttention class takes an integrated approach: it starts with a multi-head layer and then internally splits this layer into individual attention heads.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        106,
+        107,
+        103
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        106,
+        107,
+        107
+      ],
+      "generated": "关键架构差异在于：MultiHeadAttentionWrapper 通过创建一个由多个独立的 CausalAttention 对象组成的列表（self.heads）来实现多个注意力头，即“堆叠多个单头注意力层”来组合成多头注意力层；而 MultiHeadAttention 类采用集成式（integrated）方法，将多头注意力的概念合并到单个类中实现，而不是维护多个独立的注意力类/对象 [Page 106][Page 107]。\n\n尽管 MultiHeadAttention 内部涉及复杂的张量 reshape（.view）和转置（.transpose），但从数学概念上讲，它实现的是与 MultiHeadAttentionWrapper 相同的多头注意力概念 [Page 107]。",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了参考答案的核心差异：Wrapper 堆叠多个独立单头注意力层，MultiHeadAttention 采用集成式方法在单个类中实现多头注意力，与参考答案一致。"
+    },
+    {
+      "id": "ch04_q02",
+      "category": "comparison",
+      "chapter": "Chapter 4",
+      "question": "What is the key difference in the behavior of GELU compared to ReLU for negative input values?",
+      "reference_answer": "ReLU outputs zero for negative inputs, whereas GELU is a smooth, non-linear function that has a non-zero gradient for negative values.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        131,
+        130,
+        126
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        131,
+        130
+      ],
+      "generated": "关键区别在于：对于负输入，ReLU 直接输出零，而 GELU 允许产生一个小的、非零的输出（并且对负值具有非零梯度）。[Page 131][Page 130]",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了参考答案的关键点：ReLU对负输入输出零，GELU对负值产生小的非零输出且具有非零梯度。"
+    },
+    {
+      "id": "ch05_q05",
+      "category": "comparison",
+      "chapter": "Chapter 5",
+      "question": "What is the key difference between using torch.argmax and torch.multinomial for selecting the next token?",
+      "reference_answer": "torch.argmax deterministically selects the token with the highest probability, while torch.multinomial performs probabilistic sampling, selecting a token according to the probability distribution, so it can pick a token that does not have the highest probability.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        185,
+        161,
+        184
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        185,
+        184
+      ],
+      "generated": "根据资料，关键区别在于：`torch.argmax` 会选择概率分数最大的 token（即最可能的 token），而 `torch.multinomial` 是按概率分数比例对下一个 token 进行采样，因此最可能的 token 大多数时候会被选中，但并非总是如此 [Page 185][Page 184]。",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了关键区别：argmax 确定性选择最高概率 token，multinomial 按概率分布采样，可能选中非最高概率 token。"
+    },
+    {
+      "id": "ch07_q02",
+      "category": "comparison",
+      "chapter": "Chapter 7",
+      "question": "How does the Alpaca prompt style differ from the Phi-3 prompt style in terms of formatting for instruction finetuning?",
+      "reference_answer": "The Alpaca style uses a structured format with defined sections for instruction, input, and response, while the Phi-3 style employs a simpler format with designated <|user|> and <|assistant|> tokens.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        253,
+        253,
+        254
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        253
+      ],
+      "generated": "根据资料，Alpaca prompt style 使用结构化格式，为 instruction、input 和 response 定义了明确的区段；而 Phi-3 prompt style 使用更简单的格式，采用指定的 `<|user|>` 和 `<|assistant|>` tokens [Page 253]。",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了参考答案的两个关键点：Alpaca 的结构化区段（instruction/input/response）和 Phi-3 的 <|user|>/<|assistant|> tokens，且与参考答案一致。"
+    },
+    {
+      "id": "ch03_cmp_q01",
+      "category": "comparison",
+      "chapter": "Chapter 3",
+      "question": "Compare self-attention and causal attention in terms of which tokens each position can attend to.",
+      "reference_answer": "In standard self-attention, each position in the input sequence can attend to all positions in the same sequence, including future tokens. In causal attention (masked attention), the model is restricted to only consider previous and current inputs in a sequence when processing any given token; future tokens above the diagonal are masked out with negative infinity before the softmax, so each token can only be influenced by itself and preceding tokens.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        92,
+        69,
+        65,
+        63
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        69,
+        92
+      ],
+      "generated": "Self-attention allows each position in the input sequence to attend to **all positions in the same sequence** when computing the representation [Page 69]. In contrast, causal attention (masked attention) restricts the model to only consider **previous and current inputs** in a sequence when processing any given token, rather than the entire input sequence at once [Page 92].",
+      "verdict": "correct",
+      "reason": "回答准确对比了两种注意力：自注意力可关注序列中所有位置，因果注意力仅关注当前及之前位置，覆盖了参考答案的关键点。"
+    },
+    {
+      "id": "ch03_cmp_q02",
+      "category": "comparison",
+      "chapter": "Chapter 3",
+      "question": "Compare the MultiHeadAttentionWrapper and the MultiHeadAttention class in terms of how many matrix multiplications are needed to compute the keys.",
+      "reference_answer": "In MultiHeadAttentionWrapper, separate CausalAttention heads are stacked, so the key matrix multiplication (keys = self.W_key(x)) is repeated once per attention head. In MultiHeadAttention, only one larger weight matrix W_key is initialized and one matrix multiplication is performed to obtain the full query/key/value matrix Q/K/V, which is then split into individual heads via .view and .transpose. Because the matrix multiplication is one of the most expensive steps, MultiHeadAttention is more efficient.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        110,
+        108,
+        107
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        110,
+        108
+      ],
+      "generated": "MultiHeadAttentionWrapper 需要为每个 attention head 重复进行计算 keys 的矩阵乘法（即多次矩阵乘法）；而 MultiHeadAttention 只需要一次矩阵乘法来计算 keys（例如 keys = self.W_key(x)），因此更高效。[Page 110]\n\n具体来说，在 MultiHeadAttentionWrapper 中初始化了两个权重矩阵 Wq1 和 Wq2（对应两个 attention head），而在 MultiHeadAttention 中只初始化一个更大的权重矩阵 Wq，只对输入做一次矩阵乘法得到 query 矩阵，然后将其拆分为 Q1 和 Q2，keys 和 values 也是同样处理。[Page 108]",
+      "verdict": "correct",
+      "reason": "回答准确对比了两者在计算 keys 时矩阵乘法次数的差异：Wrapper 每个 head 重复一次，MultiHeadAttention 只做一次大矩阵乘法再拆分，并补充了 Wq 拆分的细节，覆盖了参考答案的关键点。"
+    },
+    {
+      "id": "ch04_cmp_q01",
+      "category": "comparison",
+      "chapter": "Chapter 4",
+      "question": "Compare LayerNorm and BatchNorm in terms of their normalization axis and their suitability for LLMs.",
+      "reference_answer": "Unlike batch normalization, which normalizes across the batch dimension, layer normalization normalizes across the feature dimension. Layer normalization normalizes each input independently of the batch size, offering more flexibility and stability when the batch size is dictated by hardware or use case, which is particularly beneficial for distributed training or resource-constrained deployment of LLMs.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        129,
+        127,
+        141,
+        112
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        129,
+        129,
+        127
+      ],
+      "generated": "根据资料，LayerNorm 与 BatchNorm 的对比结论如下：\n\n1. **归一化轴不同**：BatchNorm 是沿 batch 维度进行归一化，而 LayerNorm 是沿特征（feature）维度进行归一化 [Page 129]。\n\n2. **对 LLM 的适用性**：LLM 通常需要大量计算资源，可用的硬件或具体用例会决定训练时的 batch size；资料在此语境下引出 LayerNorm 与 BatchNorm 的对比，说明 LayerNorm 更适合 LLM 的场景 [Page 129]。\n\n3. **实现细节佐证**：资料中的 LayerNorm 模块基于 emb_dim（特征维度）定义参数（如 scale），体现了按特征维度归一化的做法 [Page 127]。\n\n资料中没有找到足够的信息来回答\"BatchNorm 在 LLM 中具体表现如何\"这一更细的问题。",
+      "verdict": "correct",
+      "reason": "回答正确覆盖了参考答案的两个关键点：BatchNorm沿batch维度归一化、LayerNorm沿特征维度归一化，以及LayerNorm因batch size受硬件/用例决定而更适合LLM。虽未逐字复述分布式训练等细节，但核心结论一致。"
+    },
+    {
+      "id": "ch04_cmp_q02",
+      "category": "comparison",
+      "chapter": "Chapter 4",
+      "question": "Compare Pre-LayerNorm and Post-LayerNorm in terms of where normalization is applied and their training dynamics.",
+      "reference_answer": "Pre-LayerNorm applies layer normalization before the self-attention and feed-forward components, as used in GPT-2 and newer LLMs, and leads to more stable training dynamics. Post-LayerNorm, used in the original transformer model, applies layer normalization after the self-attention and feed-forward networks, which often leads to worse training dynamics.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        141,
+        122,
+        127
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        141,
+        141
+      ],
+      "generated": "Pre-LayerNorm applies layer normalization **before** the self-attention and feed-forward networks (i.e., before each block/sub-layer), and this placement is associated with better training dynamics. [Page 141]\n\nPost-LayerNorm applies layer normalization **after** the self-attention and feed-forward networks, and it “often leads to worse training dynamics.” [Page 141]\n\n资料中没有找到足够的信息来回答这个问题。",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了Pre-LayerNorm和Post-LayerNorm的归一化位置及训练动态差异，与参考答案一致；末尾的'资料不足'表述虽多余，但核心内容正确完整。"
+    },
+    {
+      "id": "ch05_cmp_q01",
+      "category": "comparison",
+      "chapter": "Chapter 5",
+      "question": "Compare greedy decoding, temperature scaling, and top-k sampling in terms of how they select the next token.",
+      "reference_answer": "Greedy decoding uses torch.argmax to deterministically select the token with the highest probability. Temperature scaling divides the logits by a temperature greater than 0 before softmax, then samples via torch.multinomial; temperatures greater than 1 yield more uniform distributions and more diverse output, temperatures below 1 yield sharper, more confident distributions. Top-k sampling restricts sampling to the top-k most likely tokens by masking all other logits with negative infinity before softmax, and is often combined with temperature scaling.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        188,
+        183,
+        190
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        183,
+        188,
+        190,
+        188,
+        190,
+        183,
+        188,
+        190,
+        188,
+        190
+      ],
+      "generated": "根据资料，三者在“如何选择下一个 token”上的区别如下：\n\n- **Greedy decoding**：在每个生成步骤中，从词表所有 token 中选择概率分数最大的那个 token [Page 183]。\n- **Temperature scaling**：在 next-token 生成任务中加入概率选择过程；它通过温度缩放改变下一个 token 的概率分布，温度越高，分布越趋于均匀，从而降低模型反复选择最可能 token 的可能性，使输出更多样 [Page 188]。资料还说明，温度缩放与多项式（multinomial）概率采样结合，用于在非零概率分数的 token 中选择下一个 token [Page 190]。\n- **Top-k sampling**：资料在 5.3.2 节标题中提出 top-k sampling，并说明上一节实现了结合温度缩放的概率采样方法以增加输出多样性 [Page 188]；但资料中可见内容没有具体说明 top-k sampling 如何筛选候选 token 或如何选择下一个 token。资料在 5.3.3 节仅总结说前两小节介绍了 temperature sampling 和 top-k sampling 两个增加 LLM 生成文本多样性的概念 [Page 190]。\n\n因此，就资料明确给出的选择机制而言：greedy decoding 是直接取最大概率 token [Page 183]；temperature scaling 是改变概率分布后配合概率采样选择 token [Page 188][Page 190]；top-k sampling 的具体选择机制在资料中没有足够信息说明 [Page 188][Page 190]。",
+      "verdict": "partial",
+      "reason": "Greedy 和 temperature scaling 的关键点基本覆盖，但系统声称资料未说明 top-k 的具体机制，而参考答案明确要求 top-k 通过将非 top-k logits 置为负无穷来限制采样；这属于漏掉关键信息，因此是 partial。"
+    },
+    {
+      "id": "ch06_cmp_q01",
+      "category": "comparison",
+      "chapter": "Chapter 6",
+      "question": "Compare classification-finetuning and instruction-finetuning in terms of required data, compute, and the range of tasks the resulting model can perform.",
+      "reference_answer": "Instruction-finetuning improves a model's ability to understand and generate responses based on specific user instructions and is best suited for models that need to handle a variety of tasks based on complex user instructions, improving flexibility and interaction quality. Classification-finetuning is ideal for projects requiring precise categorization of data into predefined classes, such as sentiment analysis or spam detection. While instruction-finetuning is more versatile, it demands larger datasets and greater computational resources; classification-finetuning requires less data and compute power, but its use is confined to the specific classes on which the model has been trained.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        207,
+        207,
+        206
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        207,
+        207,
+        207,
+        207,
+        206,
+        206
+      ],
+      "generated": "根据资料，比较如下：\n\n**所需数据与计算资源：**\n- Instruction-finetuning 更通用（more versatile），但需要更大的数据集和更多的计算资源，才能开发出能胜任多种任务的模型。[Page 207]\n- Classification-finetuning 需要的数据和计算资源更少，但其用途仅限于模型训练时所针对的特定类别。[Page 207]\n\n**可执行的任务范围：**\n- Instruction-finetuning 提升模型基于具体用户指令理解和生成回答的能力，最适合需要处理多种基于复杂用户指令的任务的模型，能提高灵活性和交互质量。[Page 207]\n- Classification-finetuning 适合需要将数据精确归类到预定义类别的项目，例如情感分析或垃圾邮件检测。[Page 207] 与 instruction-finetuned 模型不同，classification-finetuned 模型只能回答“spam”和“not spam”。[Page 206] 可以将 classification-finetuned 模型视为高度专门化的模型，通常开发专门化模型比开发能良好适用于各种任务的通用模型更容易。[Page 206]",
+      "verdict": "correct",
+      "reason": "回答完整覆盖了参考答案的三个维度：数据与计算资源（instruction 需要更多，classification 需要更少）、任务范围（instruction 更通用灵活，classification 限于预定义类别），并补充了具体示例，与参考答案一致。"
+    },
+    {
+      "id": "ch03_math_q01",
+      "category": "derivation",
+      "chapter": "Chapter 3",
+      "question": "Write the formula for scaled dot-product attention and explain why the scaling factor is the square root of the key embedding dimension.",
+      "reference_answer": "The self-attention is called scaled dot-product attention because the attention scores (queries @ keys.T) are divided by the square root of the key embedding dimension d_k before applying softmax: attn_weights = softmax(attn_scores / d_k**0.5). The reason for this normalization is to improve training performance by avoiding small gradients. When the embedding dimension is large (typically greater than a thousand for GPT-like LLMs), large dot products can result in very small gradients during backpropagation due to the softmax function; as dot products increase, the softmax behaves more like a step function, resulting in gradients nearing zero, which can drastically slow down learning or cause training to stagnate.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        86,
+        86,
+        74
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        86,
+        86,
+        86
+      ],
+      "generated": "资料中没有找到足够的信息来回答这个问题。\n\n具体来说：\n- 资料中提到了“scaled-dot product attention”这一名称，并说明“The scaling by the square root of the embedding dimension is the reason why this self-attention mechanism is also called scaled-dot product attention” [Page 86]，但**没有给出 scaled dot-product attention 的完整公式**。\n- 资料中解释了缩放的原因：归一化是为了“improve the training performance by avoiding small gradients”，因为当 embedding dimension 增大时，大的点积会导致 softmax 在反向传播时产生非常小的梯度，softmax 更像阶跃函数，梯度接近零，从而减慢学习或导致训练停滞 [Page 86]。\n- 但资料中**没有明确说明缩放因子为什么是“key embedding dimension 的平方根”**（即没有给出 √d_k 这一具体形式的推导或说明），只提到“scaling by the square root of the embedding dimension” [Page 86]。\n\n因此，公式部分资料不足；缩放因子的解释资料只提供了“避免小梯度”的定性理由，但未说明为何取平方根这一具体形式。",
+      "verdict": "wrong",
+      "reason": "系统错误拒答。检索页面已包含参考答案的关键信息：缩放公式（除以√d_k）和避免小梯度的解释。系统声称缺少完整公式和√d_k的具体说明，但参考答案本身也只要求这些内容，页面已足够回答。"
+    },
+    {
+      "id": "ch04_math_q01",
+      "category": "derivation",
+      "chapter": "Chapter 4",
+      "question": "Write the GELU activation formula and explain how the tanh approximation differs from the exact definition.",
+      "reference_answer": "The exact GELU is defined as GELU(x) = x * Φ(x), where Φ(x) is the cumulative distribution function of the standard Gaussian distribution. In practice a computationally cheaper approximation is used (and was used to train the original GPT-2): GELU(x) ≈ 0.5 * x * (1 + tanh[sqrt(2/π) * (x + 0.044715 * x^3)]). Unlike ReLU, which outputs zero for negative inputs, GELU is a smooth, non-linear function that has a non-zero gradient for negative values.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        129,
+        129,
+        133
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        129,
+        129,
+        129
+      ],
+      "generated": "根据资料，GELU 的精确版本定义为：\n\nGELU(x) = x ⋅ Φ(x)，其中 Φ(x) 是标准高斯分布的累积分布函数 [Page 129]。\n\n资料还提到，在实践中常使用一种计算上更便宜的近似实现（原始 GPT-2 模型也是用该近似训练的）[Page 129]。但资料中给出的近似公式在提供的文本里被截断/缺失（页面中公式位置为空），因此无法从资料中读出该 tanh 近似公式的具体形式。\n\n关于 tanh 近似与精确定义的区别：资料仅说明近似版本是“计算上更便宜的近似”（computationally cheaper approximation），并未在可见文本中进一步说明 tanh 近似与精确 Φ(x) 定义在数学上的具体差异。因此，关于二者差异的细节，资料中没有找到足够的信息来回答这个问题 [Page 129]。",
+      "verdict": "wrong",
+      "reason": "系统声称资料中缺少 tanh 近似公式，但参考答案的关键信息（包括 tanh 近似公式）本应可从检索页面获得；这是错误拒答，且未覆盖参考答案的关键点。"
+    },
+    {
+      "id": "ch05_math_q01",
+      "category": "derivation",
+      "chapter": "Chapter 5",
+      "question": "Express perplexity in terms of the cross entropy loss and explain how it can be interpreted as an effective vocabulary size.",
+      "reference_answer": "Perplexity can be calculated as perplexity = torch.exp(loss), where loss is the cross entropy loss. It is often considered more interpretable than the raw loss value because it signifies the effective vocabulary size about which the model is uncertain at each step. For example, a perplexity of about 48,725 translates to the model being unsure about which among 47,678 words or tokens in the vocabulary to generate as the next token.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        168,
+        167,
+        203
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        168,
+        168,
+        167
+      ],
+      "generated": "根据资料，困惑度（perplexity）可以用交叉熵损失（cross entropy loss）表示为：\n\n**perplexity = torch.exp(loss)** [Page 168]\n\n也就是说，困惑度是损失值的指数。\n\n关于如何将其解释为“有效词汇量大小”（effective vocabulary size）：资料指出，困惑度常被认为比原始损失值更具可解释性，因为它表示模型在每一步所不确定的“有效词汇量大小”。在给出的例子中，这转化为模型不确定在词汇表的 47,678 个词或 token 中该生成哪一个作为下一个 token [Page 168]。\n\n资料还说明，困惑度衡量模型预测的概率分布与数据集中词的实际分布匹配得有多好；与损失类似，较低的困惑度表明模型表现更好 [Page 167]。",
+      "verdict": "correct",
+      "reason": "回答正确给出了 perplexity = torch.exp(loss)，并解释了其作为有效词汇量大小的含义，包含 47,678 词/ token 的例子，覆盖了参考答案的关键点。"
+    },
+    {
+      "id": "ch05_math_q02",
+      "category": "derivation",
+      "chapter": "Chapter 5",
+      "question": "Derive the relationship between the negative average log probability of the target tokens and the cross entropy loss.",
+      "reference_answer": "For each target token, the model's softmax probability is selected; the logarithm is applied to each target probability, giving the log probabilities. These log probabilities are averaged to obtain the average log probability. The negative average log probability is then computed by multiplying the average log probability by -1, and this negative average log probability is the cross entropy loss. PyTorch's cross_entropy function performs all these steps automatically.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        166,
+        166,
+        164
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        166,
+        166,
+        166,
+        166
+      ],
+      "generated": "根据资料，负的平均对数概率（negative average log probability）与交叉熵损失（cross entropy loss）之间的关系可以表述为：\n\n- 交叉熵（cross entropy）与负的平均对数概率是相关的，并且在实践中经常互换使用（often used interchangeably in practice）[Page 166]。\n- 在 PyTorch 等框架中，cross_entropy 函数为离散结果计算这一度量，它类似于给定模型生成的目标 token 概率下，目标 token 的负平均对数概率（similar to the negative average log probability of the target tokens given the model's generated token probabilities）[Page 166]。\n- 资料中还展示了计算方式：neg_avg_log_probas = avg_log_probas * -1 [Page 166]。\n\n因此，依据资料，负的平均对数概率与交叉熵损失在实践上相关且常被互换使用，cross_entropy 的计算类似于目标 token 的负平均对数概率 [Page 166]。",
+      "verdict": "partial",
+      "reason": "回答正确指出负平均对数概率与交叉熵损失相关且常互换使用，并提到 PyTorch cross_entropy 类似该计算，但未明确说明二者相等（即负平均对数概率就是交叉熵损失），也未完整覆盖参考答案中逐步推导（softmax概率取对数、平均、乘-1）的关键点。"
+    },
+    {
+      "id": "ch03_math_q02",
+      "category": "derivation",
+      "chapter": "Chapter 3",
+      "question": "Explain why the softmax function is used to normalize attention scores instead of a simple division by the sum, and what numerical property of softmax makes it preferable.",
+      "reference_answer": "A straightforward normalization of attention scores can be done by dividing by their sum (attn_scores / attn_scores.sum()), which makes the weights sum to 1. However, in practice it is more common and advisable to use the softmax function because it is better at managing extreme values and offers more favorable gradient properties during training. Softmax also ensures that attention weights are always positive, making the output interpretable as probabilities or relative importance. The naive softmax implementation may encounter numerical instability (overflow/underflow), so PyTorch's optimized torch.softmax is used in practice.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        75,
+        75,
+        86
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        75,
+        75,
+        75,
+        75,
+        86,
+        75
+      ],
+      "generated": "根据资料，使用 softmax 函数而不是简单除以总和来归一化注意力分数，原因如下：\n\n1. softmax 在实践中更常见且更可取，因为它更善于处理极端值，并且在训练期间提供更有利的梯度特性 [Page 75]。\n\n2. softmax 函数能够满足归一化目标，使注意力权重之和为 1 [Page 75]。\n\n3. softmax 函数确保注意力权重始终为正，这使得输出可以解释为概率或相对重要性，其中较高的权重表示更大的重要性 [Page 75]。\n\n关于数值性质：资料指出，朴素的 softmax 实现（softmax_naive）在处理过大或过小的输入值时可能会遇到数值不稳定问题，例如溢出和下溢，因此实践中建议使用 PyTorch 的实现 [Page 75]。此外，资料提到 softmax 函数在某种情况下表现得更像阶跃函数，导致梯度接近零，这些小的梯度会大幅减慢学习或导致训练停滞 [Page 86]——但这一条是在讨论缩放（scaling）相关语境中提到的，并非直接说明 softmax 相对于简单除法的优势。\n\n综上，资料中明确支持的主要结论是：softmax 更善于管理极端值、具有更有利的梯度特性、保证权重为正且可解释为概率或相对重要性 [Page 75]。",
+      "verdict": "correct",
+      "reason": "回答覆盖了参考答案的关键点：softmax 更善于处理极端值、梯度特性更优、权重为正且可解释为概率，并提到朴素 softmax 的数值不稳定问题及实践中使用 PyTorch 实现。虽然额外提及了 Page 86 的梯度接近零内容并正确标注其语境，但核心结论与参考答案一致。"
+    },
+    {
+      "id": "ch03_code_q01",
+      "category": "code",
+      "chapter": "Chapter 3",
+      "question": "In the CausalAttention implementation, why is the mask registered via register_buffer instead of being stored as a regular attribute, and why is it created with torch.triu?",
+      "reference_answer": "The mask is created with torch.triu(torch.ones(context_length, context_length), diagonal=1), which produces a matrix with 1's above the diagonal and 0's elsewhere, marking the positions of future tokens to be masked. It is registered via register_buffer so that it is part of the module's state (moved to the correct device with the model) but is not treated as a trainable parameter. In the forward pass, mask_bool = self.mask.bool()[:num_tokens, :num_tokens] truncates the mask to the number of tokens and attn_scores.masked_fill_(mask_bool, -torch.inf) fills the future positions with negative infinity before softmax.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        100,
+        101,
+        92
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        100,
+        92,
+        101
+      ],
+      "generated": "资料中没有找到足够的信息来回答这个问题。\n\n具体来说：\n- 关于为什么用 `register_buffer` 而不是普通属性：资料只说明使用 `register_buffer` 并非所有场景都严格必要，但在这里有几个优势，例如当在 LLM 中使用 `CausalAttention` 类时，buffer 会随模型自动移动到合适的设备（CPU 或 GPU）[Page 100]。资料并未直接说明“为什么不用普通属性存储 mask”，因此无法完整回答该部分。\n- 关于为什么用 `torch.triu` 创建 mask：资料中没有找到相关说明。资料仅提到实现了 causal attention mask [Page 92]，以及后续将扩展为 multi-head attention [Page 101]，但没有解释 `torch.triu` 的使用原因。\n\n因此，资料中没有找到足够的信息来回答这个问题。",
+      "verdict": "abstained",
+      "reason": "系统明确表示资料不足，且检索到的页面（100、101、92）确实未包含 torch.triu 的解释，也未直接说明为何不用普通属性，因此属于合理的资料不足拒答。"
+    },
+    {
+      "id": "ch04_code_q01",
+      "category": "code",
+      "chapter": "Chapter 4",
+      "question": "In the TransformerBlock forward pass, why is the input x saved as shortcut before applying LayerNorm and attention, and what is added back at the end?",
+      "reference_answer": "In the TransformerBlock forward method, shortcut = x saves the original input. Then x = self.norm1(x); x = self.att(x); x = self.drop_shortcut(x); x = x + shortcut adds the original input back. The same pattern is repeated for the feed-forward block: shortcut = x; x = self.norm2(x); x = self.ff(x); x = self.drop_shortcut(x); x = x + shortcut. These are the shortcut (residual) connections, which help gradients flow through the network during training and improve the learning of deep models.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        141,
+        141,
+        119
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        141
+      ],
+      "generated": "资料中没有找到足够的信息来回答这个问题。\n\n资料中虽然出现了 `x = x + shortcut`（标注为 #C \"Add the original input back\"）以及关于 Pre-LayerNorm 的描述 [Page 141]，但并没有说明在 forward pass 中为何要在应用 LayerNorm 和 attention 之前把输入 x 保存为 shortcut，也没有明确说明最后加回去的究竟是什么（例如是原始输入还是经过某步骤后的结果）。因此无法依据资料回答该问题。",
+      "verdict": "wrong",
+      "reason": "检索页面已包含关键信息（shortcut = x 保存原始输入、x = x + shortcut 加回原始输入、Pre-LayerNorm 描述），系统却声称资料不足而拒答，属于错误拒答。"
+    },
+    {
+      "id": "ch04_code_q02",
+      "category": "code",
+      "chapter": "Chapter 4",
+      "question": "In the GPTModel implementation, why is weight tying not applied in the code even though the original GPT-2 uses it, and how does the parameter count differ?",
+      "reference_answer": "The GPTModel class initializes separate token embedding (tok_emb) and output (out_head) layers, giving 163,009,536 parameters, which is larger than the 124 million parameter GPT-2. The original GPT-2 uses weight tying, reusing the token embedding weights in the output layer. Removing the output layer parameter count (total_params - sum(p.numel() for p in model.out_head.parameters())) gives 124,412,160 parameters, matching the original GPT-2 size. The book notes that in the author's experience using separate token embedding and output layers results in better training and model performance, which is why separate layers are used in GPTModel; weight tying is revisited in chapter 6 when loading pretrained weights from OpenAI.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        146,
+        147,
+        147
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        147,
+        147
+      ],
+      "generated": "资料足够回答这个问题。\n\n- 在 GPTModel 实现中没有采用 weight tying，是因为作者的经验表明：使用独立的 token embedding 层和输出层会带来更好的训练效果和模型性能，因此其 GPTModel 实现中使用了分离的层；现代 LLM 也是如此。资料还提到会在第 6 章加载 OpenAI 预训练权重时再重新实现 weight tying。[Page 147]\n- 参数数量方面：由于 tokenizer 词表有 50,257 行，token embedding 层和输出层都非常大；按照 weight tying 从总参数中移除输出层参数后，模型只有 124 million 参数，匹配原始 GPT-2 模型的规模。[Page 147]",
+      "verdict": "partial",
+      "reason": "回答正确解释了未使用 weight tying 的原因，并提到移除输出层后约 124M 参数匹配 GPT-2，但漏掉了参考答案中的关键具体数字：分离层时总参数为 163,009,536，移除 out_head 后为 124,412,160。"
+    },
+    {
+      "id": "ch05_code_q01",
+      "category": "code",
+      "chapter": "Chapter 4 & 5",
+      "question": "In the generate_text_simple function, why is the softmax step redundant when using torch.argmax, and why is it included anyway?",
+      "reference_answer": "The softmax function is monotonic, meaning it preserves the order of its inputs when transformed into outputs. So the position with the highest score in the softmax output tensor is the same position in the logit tensor; torch.argmax could be applied to the logits directly and get identical results. The softmax step is included to illustrate the full process of transforming logits to probabilities, which adds intuition, such as that the model generates the most likely next token (greedy decoding).",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        151,
+        183,
+        161,
+        184,
+        151
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        151,
+        151
+      ],
+      "generated": "资料足够回答。\n\n- softmax 是单调函数，会保持输入的顺序，因此 softmax 输出中得分最高的位置与 logit 张量中得分最高的位置相同；而 `torch.argmax` 只是选取最高值的位置，所以 softmax 这一步在使用 `torch.argmax` 时是冗余的。[Page 151]\n- 资料说明 softmax 步骤仍被包含在 `generate_text_simple` 中，但关于“为什么仍然包含它”的原因，资料只提到后续会引入额外的采样技术，通过修改 softmax 输出使模型不总是选择最可能的 token，从而增加生成文本的变化性和创造性；资料并未明确解释在当前 `argmax` 版本中为何仍保留 softmax。[Page 151]",
+      "verdict": "partial",
+      "reason": "正确解释了 softmax 冗余的原因（单调性、argmax 结果相同），但漏掉了参考答案中关于保留 softmax 是为了展示从 logits 到概率的完整过程、增加直觉（如贪婪解码生成最可能的下一个 token）这一关键点，反而称资料未明确解释保留原因。"
+    },
+    {
+      "id": "ch07_code_q01",
+      "category": "code",
+      "chapter": "Chapter 7",
+      "question": "In the custom_collate_fn for instruction finetuning, why is only the first 50256 (end-of-text) token kept in the targets while subsequent padding tokens are replaced with -100?",
+      "reference_answer": "The custom_collate_fn replaces all but the first padding token (ID 50256) in the targets with ignore_index = -100. PyTorch's cross_entropy function defaults to ignore_index=-100, so targets labeled with -100 are ignored in the loss calculation. This excludes the additional end-of-text padding tokens used to pad training examples to the same length in each batch. One 50256 token is intentionally kept because it helps the LLM learn to generate end-of-text tokens, which can be used as an indicator that a response is complete.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        266,
+        265,
+        269
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        265,
+        266,
+        269
+      ],
+      "generated": "保留第一个 50256（end-of-text）token 是为了让 LLM 学习何时生成 end-of-text token，从而可以用它作为响应完成的指示；而后续用作 padding 的 end-of-text token 会被替换为 -100（占位值），以便在目标中屏蔽这些 padding token。[Page 265][Page 266][Page 269]",
+      "verdict": "correct",
+      "reason": "回答覆盖了参考答案的两个关键点：保留一个50256 token用于学习生成结束标记，以及将后续padding token替换为-100以在损失中屏蔽。虽未明确提及cross_entropy的ignore_index机制，但核心逻辑完整正确。"
+    },
+    {
+      "id": "ch03_mh_q01",
+      "category": "multi_hop",
+      "chapter": "Chapter 3",
+      "question": "Given that attention scores are normalized by the square root of the key embedding dimension, what happens to the gradient magnitude during backpropagation if the embedding dimension becomes very large and no scaling is applied?",
+      "reference_answer": "When the embedding dimension is large (typically greater than a thousand for GPT-like LLMs), large dot products can result in very small gradients during backpropagation due to the softmax function applied to them. As dot products increase, the softmax function behaves more like a step function, resulting in gradients nearing zero. These small gradients can drastically slow down learning or cause training to stagnate. This is why the scaling by the square root of the embedding dimension is applied, giving the mechanism its name scaled-dot product attention.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        86,
+        85,
+        86
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        86
+      ],
+      "generated": "If the embedding dimension becomes very large and no scaling is applied, the large dot products cause the softmax function to behave more like a step function, resulting in gradients nearing zero during backpropagation. These small gradients can drastically slow down learning or cause training to stagnate. [Page 86]",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了参考答案的核心要点：大点积使 softmax 近似阶跃函数、梯度趋近于零、学习变慢或停滞，与参考答案一致。"
+    },
+    {
+      "id": "ch04_mh_q01",
+      "category": "multi_hop",
+      "chapter": "Chapter 4",
+      "question": "If shortcut connections were removed from the GPT model, what effect would this have on the gradients in the early layers during training, based on the book's experiment?",
+      "reference_answer": "In the book's experiment with a 5-layer network, without shortcut connections the gradients become smaller as we progress from the last layer (layers.4, gradient mean 0.0050) to the first layer (layers.0, gradient mean 0.0002), demonstrating the vanishing gradient problem. With shortcut connections, the gradient value stabilizes as we progress towards the first layer (layers.0 gradient mean 0.2217) and doesn't shrink to a vanishingly small value. So removing shortcut connections from the GPT model would cause gradients in the early layers to vanish, making effective training of the deep model difficult.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        138,
+        138,
+        134
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        138,
+        134
+      ],
+      "generated": "根据资料，如果移除 shortcut connections，早期层（如 layers.0）的梯度会随着反向传播逐层变小，出现梯度消失问题，导致早期层难以有效训练；资料指出 shortcut connections 的作用正是缓解这一问题，使梯度在向第一层传播时保持稳定、不会缩小到极小值 [Page 138][Page 134]。",
+      "verdict": "correct",
+      "reason": "回答正确指出移除 shortcut connections 会导致早期层梯度逐层变小、出现梯度消失，并说明 shortcut connections 能稳定梯度，覆盖了参考答案的关键点。"
+    },
+    {
+      "id": "ch05_mh_q01",
+      "category": "multi_hop",
+      "chapter": "Chapter 5",
+      "question": "If the temperature is set to 0 in the generate function, how does the sampling behavior relate to the argmax operation?",
+      "reference_answer": "In the generate function, temperature scaling is only applied if temperature > 0.0: logits = logits / temperature, then probs = softmax(logits) and idx_next = torch.multinomial(probs, num_samples=1). If temperature is 0 (or not greater than 0), the else branch is taken: idx_next = torch.argmax(logits, dim=-1, keepdim=True), which is the same greedy next-token selection as generate_text_simple. So setting temperature to 0 makes the generation deterministic and equivalent to greedy decoding.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        183,
+        192,
+        187
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        187,
+        183
+      ],
+      "generated": "资料中没有找到足够的信息来回答这个问题。\n\n资料中提到了 temperature 为 1 等同于不做 temperature scaling，以及很小的 temperature（如 0.1）会使分布更尖锐、几乎总是选择最可能的 token [Page 187]；也提到可以用概率采样替代 argmax（greedy decoding）来增加多样性 [Page 183]。但资料中并未说明 temperature 设为 0 时 generate 函数的具体行为，也没有说明 temperature=0 与 argmax 操作之间的关系。",
+      "verdict": "abstained",
+      "reason": "系统明确表示资料不足，且检索到的页面（183、187、192）未包含 temperature=0 时走 argmax 分支的关键信息，属于合理拒答。"
+    },
+    {
+      "id": "ch06_mh_q01",
+      "category": "multi_hop",
+      "chapter": "Chapter 6",
+      "question": "If only the output layer were made trainable while keeping all transformer blocks frozen, how would the number of trainable parameters and the classification accuracy compare to the book's setup where the last transformer block and final LayerNorm are also trainable?",
+      "reference_answer": "In the book's setup, all model parameters are first frozen (param.requires_grad = False), then a new 2-class output layer is added (which is trainable by default), and additionally the last transformer block and final LayerNorm are set trainable. The book notes that technically training only the output layer is sufficient, but finetuning additional layers (the last transformer block and final LayerNorm) noticeably improves the predictive performance of the finetuned model. So training only the output layer would yield fewer trainable parameters but worse accuracy than the book's configuration.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        226,
+        225,
+        224
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        226,
+        225
+      ],
+      "generated": "资料中没有找到足够的信息来回答这个问题。\n\n具体来说：\n- 关于“只训练输出层”与“同时训练最后一个 transformer block 和 final LayerNorm”两种设置下**可训练参数数量**的对比，资料只说明后者将这些层设为可训练（requires_grad=True）[Page 226]，但没有给出任一设置下的具体参数数量或比例。\n- 关于**分类准确率**的对比，资料仅提到“finetuning additional layers can noticeably improve the predictive performance of the finetuned model”[Page 225]，但没有给出“只训练输出层”与本书设置之间的准确率数值或定量比较。\n\n因此，无法依据资料回答该问题。",
+      "verdict": "wrong",
+      "reason": "检索页面已包含参考答案关键信息：只训练输出层参数更少但准确率更差，额外微调最后transformer块和LayerNorm能明显提升性能。系统却称资料不足，属于错误拒答。"
+    },
+    {
+      "id": "ch05_mh_q02",
+      "category": "multi_hop",
+      "chapter": "Chapter 5",
+      "question": "If the training set loss continues to decrease while the validation loss stagnates, what does this indicate, and how can this be related to the size of the training dataset used in the book?",
+      "reference_answer": "When the training set loss continues to decrease past the second epoch while the validation loss stagnates, it is a sign that the model is still learning but is overfitting to the training set. This is expected in the book because it uses a very small training dataset (the 5,145-token 'The Verdict' short story) and trains for multiple epochs; usually it is common to train a model on a much larger dataset for only one epoch. The overfitting can be confirmed by finding generated text snippets verbatim in the training text.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        181,
+        180,
+        182
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        181,
+        182,
+        182
+      ],
+      "generated": "资料足够回答第一部分，但关于“训练数据集大小”的部分资料中没有足够信息。\n\n- 当训练集损失继续下降而验证集损失停滞时，这表明模型仍在学习，但在第2个epoch之后开始对训练集过拟合 [Page 181]。资料还指出，这种训练损失与验证损失之间的分歧，以及验证损失远大于训练损失，表明模型正在对训练数据过拟合 [Page 182]。\n- 关于这与本书所用训练数据集大小的关系：资料中没有找到足够的信息来回答这个问题。资料只提到可以通过搜索生成文本片段（如“quite insensible to the irony”）来确认模型逐字记忆了训练数据 [Page 182]，但没有说明训练数据集的大小，也没有将过拟合现象与数据集大小联系起来。",
+      "verdict": "wrong",
+      "reason": "系统声称资料不足以回答数据集大小部分，但参考答案的关键信息（本书使用很小的训练数据集，如5,145 token的短篇故事，通常应在更大数据集上只训练一个epoch）应可从检索页面获得；系统错误拒答，未覆盖该关键点。"
+    },
+    {
+      "id": "ch04_mh_q02",
+      "category": "multi_hop",
+      "chapter": "Chapter 4",
+      "question": "If the feed-forward module's expansion factor of 4 were removed (i.e., the first Linear layer kept the embedding dimension instead of expanding to 4x), how would the parameter count of the feed-forward module change relative to the attention module?",
+      "reference_answer": "In the 124M GPT-2 configuration, the feed-forward module expands the embedding dimension by a factor of 4 (768 -> 3072) and then contracts back (3072 -> 768). The book's Exercise 4.1 answer shows the feed-forward module contains 4,722,432 parameters while the attention module contains 2,360,064 parameters, so the feed-forward module has approximately twice as many parameters as the attention module. If the expansion factor of 4 were removed, the two Linear layers would be 768x768 each, dramatically reducing the feed-forward module's parameter count (roughly to 2 * 768^2 = 1,179,648 plus biases), making it smaller than the attention module.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        133,
+        147,
+        131
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        133,
+        131,
+        147
+      ],
+      "generated": "资料中没有找到足够的信息来回答这个问题。\n\n资料提到 FeedForward 模块内部会通过第一个线性层将嵌入维度扩展到更高维空间，然后再收缩回原始维度 [Page 133]，并且该模块由两个 Linear 层和 GELU 激活组成 [Page 131]。资料还提出了计算并比较 FeedForward 模块与多头注意力模块参数数量的练习 [Page 147]，但没有给出这两个模块具体的参数数量、计算公式或扩展因子为 4 时的具体参数值。因此，无法依据资料判断“移除扩展因子 4”后 FeedForward 模块参数数量相对注意力模块会如何变化。",
+      "verdict": "abstained",
+      "reason": "系统明确表示资料不足，且检索到的页面（133、147、131）确实未包含参考答案中的具体参数数量（4,722,432 与 2,360,064）或扩展因子为4时的计算细节，因此属于合理的资料不足拒答。"
+    },
+    {
+      "id": "ch02_ch03_cc_q01",
+      "category": "cross_chapter",
+      "chapter": "Chapter 2 & 3",
+      "question": "How does the token embedding and positional embedding pipeline from Chapter 2 feed into the self-attention computation in Chapter 3?",
+      "reference_answer": "In Chapter 2, input text is tokenized, token IDs are converted into token embeddings via an embedding layer, and positional embeddings are added to the token embeddings to create the input embeddings (input_embeddings = token_embeddings + pos_embeddings), with shape [batch, num_tokens, emb_dim]. In Chapter 3, these input embeddings serve as the input sequence x^(1)...x^(T) for self-attention: each element is a d-dimensional embedding vector, and the self-attention mechanism computes context vectors by transforming these inputs with the W_query, W_key, and W_value weight matrices and combining the value vectors weighted by attention weights.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        69,
+        84,
+        62,
+        59,
+        58
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        62,
+        59,
+        58,
+        69,
+        84,
+        62,
+        59,
+        69,
+        84
+      ],
+      "generated": "资料足够回答这个问题。根据资料，流程如下：\n\n1. **文本先被切分为 token，再转换为 token ID，然后转为 embedding 向量**；同时会加入相同维度的 positional embedding，二者相加得到 input embeddings，作为主 LLM 层的输入。[Page 62]\n\n2. **Positional embeddings 被加到 token embedding 向量上，形成 LLM 的 input embeddings**；positional vectors 与原始 token embeddings 具有相同维度。[Page 59] 资料还说明，由于 LLM 机制本身是 position-agnostic 的，因此需要向 LLM 注入额外的位置信息；绝对位置嵌入与序列中的具体位置直接关联，每个位置都有一个唯一的 embedding 加到 token 的 embedding 上。[Page 58]\n\n3. **这些 input embeddings 进入 Chapter 3 的 self-attention 计算**：self-attention 允许输入序列中的每个位置在计算表示时关注同一序列中的所有位置，是基于 transformer 架构的当代 LLM（如 GPT 系列）的关键组件。[Page 69]\n\n4. **在 self-attention 中，先对输入 token 做投影**（资料示例中把 6 个输入 token 从 3D 投影到 2D embedding 空间），然后计算 attention scores；attention score 的计算是点积计算，但与简化版 self-attention 不同的是，这里不是直接对输入元素做点积，而是使用由输入得到的 query 和 key 来计算。[Page 84]\n\n因此，Chapter 2 的 pipeline 提供的是“token embedding + positional embedding = input embeddings”这一输入表示，[Page 62][Page 59] 而 Chapter 3 的 self-attention 则以这些 input embeddings 为基础，通过 query/key 投影与点积来计算 attention scores。[Page 69][Page 84]\n\n资料中没有找到足够的信息来回答“Chapter 2 的 embedding 具体以何种公式或接口直接传入 Chapter 3 的 query/key 投影”这一更细的衔接细节。",
+      "verdict": "correct",
+      "reason": "回答覆盖了参考答案的关键点：token→ID→embedding、positional embedding 相加得到 input embeddings、以及这些 input embeddings 作为 self-attention 输入并通过 query/key 投影与点积计算 attention scores。虽未明确列出 W_query/W_key/W_value 矩阵名称，但核心流程完整且与参考答案一致。"
+    },
+    {
+      "id": "ch03_ch06_cc_q01",
+      "category": "cross_chapter",
+      "chapter": "Chapter 3 & 6",
+      "question": "How does the causal attention mask introduced in Chapter 3 relate to the choice of the last output token for classification in Chapter 6's approach to finetuning?",
+      "reference_answer": "Chapter 3 introduces the causal attention mask, which restricts each token's focus to only its current position and those before it, ensuring that each token can only be influenced by itself and preceding tokens. In Chapter 6, when converting values into a class-label prediction, we focus on the last output token rather than the 1st, 2nd, or 3rd. Because of the causal attention mask, the last token in a sequence accumulates the most information since it is the only token with access to data from all the previous tokens, making it the most informative representation for making a prediction.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        229,
+        229,
+        231,
+        92,
+        101
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        229,
+        231,
+        229,
+        231
+      ],
+      "generated": "The causal attention mask introduced in Chapter 3 restricts each token's focus to only its current position and preceding tokens, so each token can only be influenced by itself and earlier tokens [Page 229]. Because of this setup, the last token in a sequence accumulates the most information—it is the only token with access to data from all previous tokens [Page 231]. Therefore, in the spam classification finetuning task, the approach focuses on this last output token rather than the 1st, 2nd, or 3rd output token [Page 229][Page 231].",
+      "verdict": "correct",
+      "reason": "回答准确覆盖了参考答案的关键点：因果注意力掩码限制每个token只能关注自身及之前的token，因此最后一个token累积了最多信息，是唯一能访问所有先前token数据的token，所以分类微调时选择最后一个输出token。与参考答案一致。"
+    },
+    {
+      "id": "ch04_ch05_cc_q01",
+      "category": "cross_chapter",
+      "chapter": "Chapter 4 & 5",
+      "question": "How does the GPT architecture implemented in Chapter 4 connect to the text generation loss computed in Chapter 5?",
+      "reference_answer": "Chapter 4 implements the GPTModel, which takes token indices, computes token and positional embeddings, passes them through transformer blocks, applies final layer normalization, and produces logits of shape [batch_size, num_tokens, vocab_size]. Chapter 5 uses these logits to compute the text generation loss: the logits and targets are flattened, and PyTorch's cross_entropy function computes the loss, which is the negative average log probability of the target tokens. The goal of training is to maximize the softmax probability in the index positions corresponding to the correct target token IDs, i.e., to minimize this cross entropy loss.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        160,
+        157,
+        157,
+        142,
+        117
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        157,
+        160,
+        117,
+        142
+      ],
+      "generated": "资料不足以完整回答“第4章实现的GPT架构如何与第5章计算的文本生成损失相连”这一具体机制问题。\n\n可确认的相关信息是：第5章在计算损失前，会先初始化第4章的GPTModel，并简要回顾第4章实现的文本生成过程；资料说明需要先执行这些初始步骤，之后才能计算衡量生成文本质量的损失 [Page 157][Page 160]。此外，第4章实现了GPT架构的主要组件（如transformer block），并先以DummyGPTModel提供整体架构视图，再逐步组装完整GPT模型 [Page 117][Page 142]。\n\n但资料没有具体说明第4章GPT架构的输出如何被用于第5章文本生成损失的计算细节。因此：\n\n资料中没有找到足够的信息来回答这个问题。",
+      "verdict": "wrong",
+      "reason": "系统声称资料不足，但参考答案的关键机制（GPTModel输出logits，展平后用cross_entropy计算损失）应可从检索页面获得；这是错误拒答，未覆盖关键点。"
+    },
+    {
+      "id": "ch02_ch05_cc_q01",
+      "category": "cross_chapter",
+      "chapter": "Chapter 2 & 5",
+      "question": "How does the sliding-window data sampling from Chapter 2 relate to the input-target pairs used to compute the text generation loss in Chapter 5?",
+      "reference_answer": "In Chapter 2, the GPTDatasetV1 class uses a sliding window approach: for a given stride, it creates input_chunk = token_ids[i:i+max_length] and target_chunk = token_ids[i+1:i+max_length+1], so the targets are the inputs shifted by one position. In Chapter 5, these input-target pairs from the data loader are exactly what is used to compute the text generation loss: the model receives the inputs, produces logits, and the cross entropy loss is computed between the logits and the targets (which are the inputs shifted by one position). This teaches the model to predict the next token in a sequence.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        45,
+        45,
+        161,
+        164,
+        52
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        45,
+        161,
+        161,
+        164
+      ],
+      "generated": "The sliding-window data sampling in Chapter 2 produces the input-target pairs used for training: the targets are the inputs shifted one position forward, which teaches the model to predict the next token. [Page 45] [Page 161] These same shifted input-target pairs are what feed into the model in Chapter 5 to compute the text generation loss, where the model's predicted probability scores are compared against the target values. [Page 161] [Page 164]\n\n资料中没有找到足够的信息来回答这个问题中关于“Chapter 5 中具体如何将 Chapter 2 的滑动窗口批次与损失计算逐步对应”的更多细节。",
+      "verdict": "correct",
+      "reason": "回答正确覆盖了参考答案的关键点：滑动窗口产生偏移一位的输入-目标对，目标为下一token预测，且这些对在Chapter 5用于计算文本生成损失（预测分数与目标比较）。末尾的补充说明不影响核心正确性。"
+    },
+    {
+      "id": "ch05_ch06_cc_q01",
+      "category": "cross_chapter",
+      "chapter": "Chapter 5 & 6",
+      "question": "How does the cross entropy loss used in pretraining (Chapter 5) differ from the cross entropy loss used in classification-finetuning (Chapter 6)?",
+      "reference_answer": "In Chapter 5 pretraining, the cross entropy loss is computed over all tokens: logits have shape [batch, num_tokens, vocab_size] and targets have shape [batch, num_tokens], and both are flattened so that loss = cross_entropy(logits_flat, targets_flat). In Chapter 6 classification-finetuning, the output layer is replaced with a small classification layer (e.g., 2 output nodes), and the loss is computed only on the last output token: logits = model(input_batch)[:, -1, :] and loss = cross_entropy(logits, target_batch). So the same cross entropy function is used, but the scope differs: all tokens in pretraining versus only the last token in classification.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        235,
+        166,
+        168,
+        231,
+        168
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        235,
+        166,
+        168
+      ],
+      "generated": "资料不足以完整回答这个问题。资料中只提到分类微调时“使用交叉熵损失作为最大化准确率的代理”，并说这与第5章讨论的交叉熵损失相同，且 `calc_loss_batch` 函数与第5章相同、只有一处调整，但没有说明该调整是什么，也没有系统比较预训练与分类微调中交叉熵损失的具体差异。[Page 235] 第5章资料只说明交叉熵损失衡量两个概率分布之间的差异，并用于训练/验证集损失计算。[Page 166][Page 168] 因此，资料中没有找到足够的信息来回答这个问题。",
+      "verdict": "abstained",
+      "reason": "系统明确表示资料不足，且检索到的页面（235、166、168、231）确实没有包含参考答案中关于预训练全token损失与分类微调仅最后token损失的具体差异，属于合理拒答。"
+    },
+    {
+      "id": "ch06_ch07_cc_q01",
+      "category": "cross_chapter",
+      "chapter": "Chapter 6 & 7",
+      "question": "How do the data preparation and batching approaches differ between classification-finetuning in Chapter 6 and instruction-finetuning in Chapter 7?",
+      "reference_answer": "In Chapter 6 classification-finetuning, the SpamDataset class pads all sequences to the length of the longest sequence in the training set, so all batches have the same length, and the targets are class labels (0 or 1). In Chapter 7 instruction-finetuning, a custom collate function pads each batch only to the longest sequence in that batch (so different batches can have different lengths), builds target token IDs by shifting the input by one position, and replaces padding tokens with -100 (ignored by cross entropy) while keeping one 50256 end-of-text token. The instruction dataset also applies the Alpaca prompt template and pre-tokenizes the formatted text.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        257,
+        207,
+        251,
+        204,
+        271
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        207,
+        251,
+        257,
+        271,
+        207,
+        257,
+        271
+      ],
+      "generated": "根据资料，两者的差异主要体现在：\n\n**数据准备方面：**\n- 第6章（分类微调）：从下载和准备数据集开始，属于三阶段流程（数据准备、模型设置、微调与评估）中的第一阶段 [Page 207]。\n- 第7章（指令微调）：下载并格式化指令数据集，该数据集由1100个指令-响应对构成，是数据集准备流程的第一步 [Page 251]。\n\n**批处理（batching）方面：**\n- 第7章明确指出，指令微调的批处理过程“更为复杂（a bit more involved）”，需要创建自定义的 collate 函数（custom collate function），再将其接入 DataLoader，以处理指令微调数据集的特定需求和格式 [Page 257]。资料还提到需要先讨论 custom_collate_fn 的设备设置，再创建并应用 data loaders 到训练、验证和测试集 [Page 271]。\n- 关于第6章分类微调的批处理方式，资料中只描述了其三阶段流程（数据准备、模型设置、微调与评估）[Page 207]，并未说明其是否使用自定义 collate 函数或具体批处理实现细节。\n\n因此，可以确认的差异是：第7章指令微调需要自定义 collate 函数来处理批处理 [Page 257][Page 271]，而第6章分类微调的批处理具体做法在资料中未作说明。资料中没有找到足够的信息来完整比较第6章分类微调的批处理方式。",
+      "verdict": "wrong",
+      "reason": "系统声称资料不足，但参考答案的关键信息（第6章SpamDataset填充到训练集最长序列、第7章自定义collate按批内最长序列填充、目标ID移位、-100填充等）应来自检索页面；系统未覆盖这些关键点，属于错误拒答/信息缺失。"
+    },
+    {
+      "id": "ch01_ch05_cc_q01",
+      "category": "cross_chapter",
+      "chapter": "Chapter 1 & 5",
+      "question": "How does the two-stage pretraining/finetuning process introduced in Chapter 1 map onto the concrete training procedures implemented in Chapter 5 and the finetuning chapters?",
+      "reference_answer": "Chapter 1 introduces the general process of creating an LLM as pretraining (training on a large, diverse dataset to develop a broad understanding of language) followed by finetuning (training on a narrower, task-specific dataset). Chapter 5 implements the pretraining stage concretely: it computes training and validation losses, implements the training loop with cross entropy loss and AdamW, and pretrains a GPT model on unlabeled text via next-word prediction. The finetuning stage is implemented in Chapter 6 (classification-finetuning, replacing the output layer and training on labeled spam data) and Chapter 7 (instruction-finetuning on instruction-response pairs using the Alpaca prompt template).",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        10,
+        20,
+        155,
+        17,
+        157
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        10,
+        20,
+        155,
+        17
+      ],
+      "generated": "资料不足以完整回答这个问题。\n\n资料中能够确认的映射关系如下：\n\n- Chapter 1 提出的两阶段训练方法是：先进行 pretraining（在较宽泛的数据上训练），再进行 finetuning（在更窄、更针对特定任务或领域的数据集上训练）[Page 10]。\n- Chapter 1 说明本书将按照 GPT 的基本思路分三个阶段构建 LLM：实现 LLM 架构与数据准备、pretraining 以创建 foundation model、以及 finetuning 该 foundation model [Page 20]。\n- Chapter 5 对应的是 pretraining 阶段：其内容包括计算训练集和验证集损失以评估 LLM 生成文本的质量、实现训练函数并预训练 LLM、保存和加载模型权重以继续训练、以及从 OpenAI 加载预训练权重 [Page 155]。\n- Chapter 5 还说明，在实现 pretraining 代码之后，将学习如何复用公开可用的模型权重并加载到所实现的架构中，从而在后续 finetuning LLM 时跳过昂贵的 pretraining 阶段 [Page 17]。\n\n但是，资料中没有给出 finetuning 章节的具体训练过程内容，因此无法说明 Chapter 1 的两阶段流程如何具体映射到 finetuning 章节的实施细节。资料中没有找到足够的信息来回答这个问题。",
+      "verdict": "abstained",
+      "reason": "系统明确表示资料不足，且检索到的页面（10、20、155、17、157）确实只覆盖了 pretraining 阶段，没有包含 finetuning 章节（第6、7章）的具体训练过程，因此无法完成映射，属于合理的资料不足拒答。"
+    },
+    {
+      "id": "ch03_app_cc_q01",
+      "category": "cross_chapter",
+      "chapter": "Chapter 3 & Appendix A",
+      "question": "How does the computation graph concept from Appendix A help explain the backpropagation through the self-attention mechanism in Chapter 3?",
+      "reference_answer": "Appendix A explains that a computational graph is a directed graph that expresses and visualizes mathematical expressions, and that PyTorch builds such a graph in the background when tensors with requires_grad=True are involved. The gradients are computed by applying the chain rule from right to left (reverse-mode automatic differentiation or backpropagation). In Chapter 3, the self-attention mechanism (with trainable W_query, W_key, and W_value matrices) is implemented as a sequence of tensor operations (matrix multiplications, softmax, weighted sums), which PyTorch records as a computation graph; calling loss.backward() then computes the gradients of the loss with respect to these attention weight matrices via backpropagation, allowing them to be updated during training.",
+      "retrieval_hit": true,
+      "retrieved_pages": [
+        69,
+        317,
+        319,
+        84,
+        70
+      ],
+      "evidence_sufficient": true,
+      "evidence_reason": "ok",
+      "citation_valid": true,
+      "cited_pages": [
+        69,
+        70,
+        84,
+        317,
+        319
+      ],
+      "generated": "资料中没有找到足够的信息来回答这个问题。\n\n资料中分别介绍了自注意力机制（第3章）和计算图/反向传播（附录A），但没有内容将两者联系起来，说明计算图概念如何帮助解释通过自注意力机制的反向传播过程。[Page 69][Page 70][Page 84][Page 317][Page 319]",
+      "verdict": "abstained",
+      "reason": "系统明确表示资料不足，且检索页面仅分别介绍自注意力与计算图，未包含将两者联系起来的参考答案关键信息，属于合理拒答。"
+    }
+  ]
+}
